@@ -1,5 +1,4 @@
 # mtSwirl HPC
-[![DOI](https://zenodo.org/badge/448948131.svg)](https://zenodo.org/badge/latestdoi/448948131)
 
 This repo contains pipeline files for the reference-aware mtSwirl pipeline as well as the code used to run, merge, and annotate the results.
 

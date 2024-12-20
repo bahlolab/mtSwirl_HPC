@@ -43,7 +43,7 @@ task Flagstat {
     memory: machine_mem + " GB"
     docker: docker_image
     cpu: n_cpu
-    time_minutes: 10
+    time_minutes: 20
   }
   output {
     File flagstat = "${sample_name}.flagstat.txt"

@@ -10,7 +10,7 @@ task IndexStats {
     String sample_name
     Int n_cpu = 1
     Int machine_mem = 4
-    String docker_image
+    String docker_image = "quay.io/biocontainers/samtools:1.21--h96c455f_1"
   }
   runtime {
     memory: machine_mem + " GB"
@@ -379,8 +379,7 @@ workflow MongoSubsetBamToChrMAndRevert {
     input:
       alignment = input_bam,
       alignment_index = input_bai,
-      sample_name = sample_name,
-      docker_image = docker_image
+      sample_name = sample_name
   }
   call Flagstat {
     input:

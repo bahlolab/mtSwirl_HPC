@@ -83,7 +83,8 @@ workflow MitochondriaPipeline {
     out_vcf: "Final VCF of mitochondrial SNPs and INDELs"
     vaf_filter_threshold: "Hard threshold for filtering low VAF sites"
     f_score_beta: "F-Score beta balances the filtering strategy between recall and precision. The relative weight of recall to precision."
-    mt_interval_list: "Picard style interval list file, with header and single interval representing chrM, eg chrM 1 16569 + ., and putative NUMT intervals."
+    mt_interval_list: "Picard style interval list file (e.g. https://gatk.broadinstitute.org/hc/en-us/articles/360036883931-BedToIntervalList-Picard) with sequence dictionary header and single interval representing chrM, eg chrM 1 16569 + ., and putative NUMT intervals.",
+    nuc_interval_list: "Picard style interval list file (see above) containing NUMT intervals."
   }
 
   String self_ref_suffix = ".self.ref"

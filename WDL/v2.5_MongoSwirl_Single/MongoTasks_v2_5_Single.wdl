@@ -16,7 +16,7 @@ task IndexStats {
     memory: machine_mem + " GB"
     docker: docker_image
     cpu: n_cpu
-    time_minutes: 5
+    time_minutes: 10
   }
   output {
     File idxstats = "${sample_name}.stats.tsv"

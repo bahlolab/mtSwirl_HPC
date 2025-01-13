@@ -22,8 +22,7 @@ task IndexStats {
     File idxstats = "${sample_name}.stats.tsv"
   }
   command <<<
-      /usr/bin/samtools \
-      idxstats \
+      samtools idxstats \
       ~{alignment} \
       --threads ~{n_cpu} \
       > ~{sample_name}.stats.tsv

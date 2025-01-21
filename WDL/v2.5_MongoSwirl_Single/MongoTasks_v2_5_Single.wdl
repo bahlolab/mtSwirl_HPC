@@ -2059,8 +2059,8 @@ task MongoLiftoverVCFAndGetCoverage {
     this_basename="~{d}{this_sample}~{self_suffix}.split"
     this_logging="~{d}{this_basename}_fix_liftover.log"
 
-    bgzip -c "~{d}{this_self_ref_vcf}" > "~{d}{this_self_ref_vcf}.bgz" && tabix "~{d}{this_self_ref_vcf}.bgz"
-    tabix "~{d}{this_rev_hom_ref_vcf}"
+    bgzip -c "~{d}{this_self_ref_vcf}" > "~{d}{this_self_ref_vcf}.bgz" && tabix -f "~{d}{this_self_ref_vcf}.bgz"
+    tabix -f "~{d}{this_rev_hom_ref_vcf}"
     bcftools isec -p intersected_vcfs -Ov "~{d}{this_self_ref_vcf}.bgz" "~{d}{this_rev_hom_ref_vcf}"
 
     # there should be no records private to reversed hom ref VCF

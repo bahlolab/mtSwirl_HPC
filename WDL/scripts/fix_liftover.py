@@ -5,6 +5,8 @@ import argparse
 import subprocess
 from copy import deepcopy
 from datetime import datetime
+
+hl.init(spark_conf={'spark.driver.memory': '8g'})
 hl._set_flags(no_whole_stage_codegen='1')
 
 

@@ -230,7 +230,7 @@ task SortBam {
     File alignment
     File alignment_index
     Int n_cpu = 1
-    Int machine_mem = 8
+    Int machine_mem = 16
     Int command_mem = (machine_mem * 1000) - 500
     String docker_image
   }
@@ -1662,7 +1662,7 @@ task MongoAlignToMtRegShiftedAndMetrics {
     CODE
   >>>
   runtime {
-    memory: "20 GB"
+    memory: "50 GB"
     cpu: this_cpu
     docker: "us.gcr.io/broad-gotc-prod/genomes-in-the-cloud:2.4.2-1552931386"
     returnCodes: "*"

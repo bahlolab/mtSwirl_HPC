@@ -1326,7 +1326,7 @@ task MongoM2FilterContaminationSplit {
     Int? preemptible_tries
 
     Int n_cpu = 1
-    Int machine_mem = 8
+    Int machine_mem = 16
     Int command_mem = (machine_mem * 1000) - 500
     String docker_image
   }

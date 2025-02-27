@@ -2194,7 +2194,7 @@ task MongoLiftoverVCFAndGetCoverage {
   
   runtime {
     disks: "local-disk " + disk_size + " HDD"
-    memory: "16 GB"
+    memory: "32 GB"
     cpu: select_first([n_cpu, 2])
     docker: genomes_cloud_docker
     preemptible: select_first([preemptible_tries, 5])

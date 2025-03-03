@@ -1197,7 +1197,7 @@ task MongoRunM2InitialFilterSplit {
   Float defval = 0.0
 
   # Mem is in units of GB but our command and memory runtime values are in MB
-  Int machine_mem = if defined(mem) then mem * 1000 else 3500
+  Int machine_mem = if defined(mem) then mem * 1000 else 8000
   Int command_mem = machine_mem - 500
 
   String d = "$" # a stupid trick to get ${} indexing in bash to work in Cromwell

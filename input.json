@@ -1,4 +1,7 @@
 {
+  "MitochondriaPipeline.sample_name": "GTEX-1117F",
+  "MitochondriaPipeline.wgs_aligned_input_bam_or_cram": "/stornext/Bioinf/data/lab_bahlo/public_datasets/GTEx/GTEx.v8_WGS/GTEX-1117F-0003-SM-6WBT7.cram",
+  "MitochondriaPipeline.wgs_aligned_input_bam_or_cram_index": "/stornext/Bioinf/data/lab_bahlo/public_datasets/GTEx/GTEx.v8_WGS/GTEX-1117F-0003-SM-6WBT7.crai",
   "MitochondriaPipeline.CheckHomOverlapScript": "/stornext/Bioinf/data/lab_bahlo/ref_db/human/mtDNA/mtSwirl_HPC/check_overlapping_homoplasmies.R",
   "MitochondriaPipeline.CheckVariantBoundsScript": "/stornext/Bioinf/data/lab_bahlo/ref_db/human/mtDNA/mtSwirl_HPC/check_variant_bounds.R",
   "MitochondriaPipeline.FaRenamingScript": "/stornext/Bioinf/data/lab_bahlo/ref_db/human/mtDNA/mtSwirl_HPC/compatibilify_fa_intervals_consensus.R",
@@ -20,8 +23,5 @@
   "MitochondriaPipeline.ref_dict": "/stornext/Bioinf/data/lab_bahlo/ref_db/human/mtDNA/mtSwirl_HPC/Homo_sapiens_assembly38.dict",
   "MitochondriaPipeline.ref_fasta": "/stornext/Bioinf/data/lab_bahlo/ref_db/human/mtDNA/mtSwirl_HPC/Homo_sapiens_assembly38.fasta",
   "MitochondriaPipeline.ref_fasta_index": "/stornext/Bioinf/data/lab_bahlo/ref_db/human/mtDNA/mtSwirl_HPC/Homo_sapiens_assembly38.fasta.fai",
-  "MitochondriaPipeline.sample_name": "GTEX-1117F",
-  "MitochondriaPipeline.ucsc_docker": "rahulg603/ucsc_docker",
-  "MitochondriaPipeline.wgs_aligned_input_bam_or_cram": "/stornext/Bioinf/data/lab_bahlo/public_datasets/GTEx/GTEx.v8_WGS/GTEX-1117F-0003-SM-6WBT7.cram",
-  "MitochondriaPipeline.wgs_aligned_input_bam_or_cram_index": "/stornext/Bioinf/data/lab_bahlo/public_datasets/GTEx/GTEx.v8_WGS/GTEX-1117F-0003-SM-6WBT7.crai"
+  "MitochondriaPipeline.ucsc_docker": "rahulg603/ucsc_docker"
 }

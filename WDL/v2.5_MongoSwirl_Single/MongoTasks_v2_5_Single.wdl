@@ -193,7 +193,7 @@ task MarkDuplicates {
     String sample_name
     String? read_name_regex
     Int n_cpu = 1
-    Int machine_mem = 4
+    Int machine_mem = 8
     Int command_mem = (machine_mem * 1000) - 500
     String docker_image
   }

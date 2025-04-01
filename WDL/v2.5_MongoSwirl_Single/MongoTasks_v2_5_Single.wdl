@@ -193,7 +193,7 @@ task MarkDuplicates {
     String sample_name
     String? read_name_regex
     Int n_cpu = 1
-    Int machine_mem = 8
+    Int machine_mem = 4
     Int command_mem = (machine_mem * 1000) - 500
     String docker_image
   }
@@ -1197,7 +1197,7 @@ task MongoRunM2InitialFilterSplit {
   Float defval = 0.0
 
   # Mem is in units of GB but our command and memory runtime values are in MB
-  Int machine_mem = if defined(mem) then mem * 1000 else 8000
+  Int machine_mem = if defined(mem) then mem * 1000 else 3500
   Int command_mem = machine_mem - 500
 
   String d = "$" # a stupid trick to get ${} indexing in bash to work in Cromwell
@@ -2194,7 +2194,7 @@ task MongoLiftoverVCFAndGetCoverage {
   
   runtime {
     disks: "local-disk " + disk_size + " HDD"
-    memory: "64 GB"
+    memory: "16 GB"
     cpu: select_first([n_cpu, 2])
     docker: genomes_cloud_docker
     preemptible: select_first([preemptible_tries, 5])

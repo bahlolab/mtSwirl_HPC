@@ -54,7 +54,7 @@ To run on WEHI Milton HPC:
 * Run the pipeline:
 
   ```bash
-  screen
+  # screen
   module load apptainer/1.3.5
   source miniwdl_env/bin/activate
   miniwdl run WDL/v2.5_MongoSwirl_Single/fullMitoPipeline_v2_5_Single.wdl --input input.json

@@ -161,7 +161,7 @@ task CollectWgsMetrics {
   }
   output {
     Int mean_coverage = read_int("${sample_name}.mean_coverage.txt")
-    Int median_coverage = read_int("${sample_name}.median_coverage.txt")
+    Float median_coverage = read_float("${sample_name}.median_coverage.txt")
     File wgs_metrics = "${sample_name}.wgs_metrics.txt"
     File theoretical_sensitivity = "${sample_name}.theoretical_sensitivity.txt"
   }

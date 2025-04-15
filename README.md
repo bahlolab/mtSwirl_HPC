@@ -35,7 +35,7 @@ To run on WEHI Milton HPC:
   [ ! -d $APPTAINER_CACHEDIR ] && mkdir $APPTAINER_CACHEDIR # same as above, except for cached containers
   ```
 
-* Edit the input [config file](https://github.com/bahlolab/mtSwirl_HPC/blob/main/input.json), first three lines for sample name, path to cram/bam and crai/bai.
+* Edit the input [config file](https://github.com/bahlolab/mtSwirl_HPC/blob/main/input.json), by updating the first three lines with the sample name, the path to the CRAM/BAM file, and the path to the corresponding CRAI/BAI file.
   ```bash
   nano input.json
   ```

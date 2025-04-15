@@ -42,20 +42,25 @@ To run on WEHI Milton HPC:
   [ ! -d $APPTAINER_CACHEDIR ] && mkdir $APPTAINER_CACHEDIR # same as above, except for cached containers
   ```
 
-* Edit the input [config file](https://github.com/bahlolab/mtSwirl_HPC/blob/main/input.json), by updating the first three lines with the sample name, the path to the CRAM/BAM file, and the path to the corresponding CRAI/BAI file.
+* Edit the input [config file](https://github.com/bahlolab/mtSwirl_HPC/blob/main/input.json), by updating the first three lines with the sample name, the path to the CRAM/BAM file, and the path to the corresponding CRAI/BAI file. 
   ```bash
   nano input.json
   ```
-
+  If you are using BAM files generated from the in-house GATK pipeline, please use the [input_noalt.json](https://github.com/bahlolab/mtSwirl_HPC/blob/main/input_noalt.json) configuration file.
+  ```bash
+  nano input_noalt.json
+  ```
+  
 * Run the pipeline:
 
   ```bash
   screen
-  module load miniwdl
+  module load apptainer/1.3.5
+  source miniwdl_env/bin/activate
   miniwdl run WDL/v2.5_MongoSwirl_Single/fullMitoPipeline_v2_5_Single.wdl --input input.json
   ```
 
-If the run is successful, the output JSON will be printed to the terminal, listing all output files.
+If the run is successful, the [output JSON]() will be printed to the terminal, listing all output files.
 
 ### Multiple samples
 

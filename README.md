@@ -14,12 +14,19 @@ Gupta, R., Kanai, M., Durham, T.J. et al. Nuclear genetic control of mtDNA copy 
 
 ## Installation
 
-Clone the repo:
-```bash
-cd /vast/scratch/users/$USER/
-git clone git@github.com:bahlolab/mtSwirl_HPC.git
-cd mtSwirl_HPC
-```
+* Clone the repo:
+  ```bash
+  cd /vast/scratch/users/$USER/
+  git clone git@github.com:bahlolab/mtSwirl_HPC.git
+  ```
+
+* Install miniWDL in the environment
+  ```bash
+  cd mtSwirl_HPC
+  python -m venv miniwdl_env
+  source miniwdl_env/bin/activate
+  pip install git+https://github.com/miniwdl-ext/miniwdl-slurm@develop
+  ```
 
 ## Run Instructions
 

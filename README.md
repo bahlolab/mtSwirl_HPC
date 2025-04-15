@@ -60,7 +60,7 @@ To run on WEHI Milton HPC:
   miniwdl run WDL/v2.5_MongoSwirl_Single/fullMitoPipeline_v2_5_Single.wdl --input input.json
   ```
 
-If the run is successful, the [output JSON]() will be printed to the terminal, listing all output files.
+If the run is successful, the output JSON ([example](https://github.com/bahlolab/mtSwirl_HPC/blob/main/example/outputs.json)) will be printed to the terminal, listing all output files.
 
 ### Multiple samples
 

@@ -32,6 +32,7 @@ Gupta, R., Kanai, M., Durham, T.J. et al. Nuclear genetic control of mtDNA copy 
   1. Disable `fail_fast` mode, whereby all tasks get cancelled whenever one task fails.
   2. Include `run_options` to aviod SIGBUS error. The miniwdl default options contain options to run as a fake root, which is not available on most clusters.
   3. Set `maxRetries` as 3, which will retry any task up to 3 times.
+     
   ```
   [scheduler]
   container_backend=slurm_singularity
@@ -46,7 +47,6 @@ Gupta, R., Kanai, M., Durham, T.J. et al. Nuclear genetic control of mtDNA copy 
     "maxRetries": 3,
     "docker": "ubuntu:20.04"
     }
-
   ```
 ## Run Instructions
 

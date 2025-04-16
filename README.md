@@ -64,10 +64,10 @@ If the run is successful, the output JSON ([example](https://github.com/bahlolab
 
 ### Multiple samples
 
-* Create an input JSON file for each sample: [example](https://github.com/bahlolab/mtSwirl_HPC/blob/main/example/multisample/1_generate_input.R)
+* **STEP 1** - Create an input JSON file for each sample: [example](https://github.com/bahlolab/mtSwirl_HPC/blob/main/example/multisample/1_generate_input.R)
 
-* Generate a script file for each sample: [example](https://github.com/bahlolab/mtSwirl_HPC/blob/main/example/multisample/2_generate_script.R)
+* **STEP 2** - Generate a script file for each sample: [example](https://github.com/bahlolab/mtSwirl_HPC/blob/main/example/multisample/2_generate_script.R)
 
-* Re-run any failed jobs as needed: [example](https://github.com/bahlolab/mtSwirl_HPC/blob/main/example/multisample/3_rerun.R)
+* **STEP 3** - Re-run any failed jobs as needed: [example](https://github.com/bahlolab/mtSwirl_HPC/blob/main/example/multisample/3_rerun.R)
 
 ## FAQ

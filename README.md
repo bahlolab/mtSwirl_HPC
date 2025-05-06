@@ -1,6 +1,6 @@
 # mtSwirl HPC
 
-We implemented the [mtSwirl](https://github.com/rahulg603/mtSwirl) pipeline, originally designed for the Terra cloud platform, on our local HPC, specifically for internal use in routine whole-genome sequencing (WGS) mtDNA analysis.
+We adapted the [mtSwirl](https://github.com/rahulg603/mtSwirl) pipeline, originally designed for the Terra cloud platform, to our local HPC, specifically for internal use in routine whole-genome sequencing (WGS) mtDNA analysis.
 
 Please contact the authors, Longfei Wang wang.lo@wehi.edu.au and Michael Milton milton.m@wehi.edu.au, if you would like to report any issues, feedback or feature requests.
 
@@ -22,6 +22,7 @@ Gupta, R., Kanai, M., Durham, T.J. et al. Nuclear genetic control of mtDNA copy 
 
 * Install miniWDL in the environment
   ```bash
+  module load python/3.11
   cd mtSwirl_HPC
   python -m venv miniwdl_env
   source miniwdl_env/bin/activate
@@ -33,7 +34,7 @@ Gupta, R., Kanai, M., Durham, T.J. et al. Nuclear genetic control of mtDNA copy 
   2. Include `run_options` to aviod SIGBUS error. The miniwdl default options contain options to run as a fake root, which is not available on most clusters.
   3. Set `maxRetries` as 3, which will retry any task up to 3 times.
      
-  ```
+  ```toml
   [scheduler]
   container_backend=slurm_singularity
   fail_fast = false
@@ -127,11 +128,37 @@ It is recommended to submit a maximum of 50 jobs per run due to the per-user CPU
 
 **Error message**: "srun: error: Unable to create step for job 21227175: Memory required by task is not available"
 
-**Solution**: MiniWDL requires that the parent job has sufficient resources to accommodate all child jobs (i.e. set the memory and CPUs to the maximum of all the child jobs). This issue has now been fixed by the maintainer. Please reinstall MiniWDL in your environment.
+**Solution**: MiniWDL requires that the parent job has sufficient resources to accommodate all child jobs (i.e. set the memory and CPUs to the maximum of all the child jobs). This issue has now been fixed by the maintainer. Please install the latest development version of MiniWDL in your environment.
 
 ```bash
 cd mtSwirl_HPC
 python -m venv miniwdl_env
 source miniwdl_env/bin/activate
 pip install git+https://github.com/miniwdl-ext/miniwdl-slurm@develop
+```
+
+### `SIGBUS error`
+
+e.g.
+```
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGBUS (0x7) at pc=0x0000148553052f2d, pid=17, tid=0x00001485536df700
+#
+# JRE version:  (8.0_242-b08) (build )
+# Java VM: OpenJDK 64-Bit Server VM (25.242-b08 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  [libc.so.6+0x18ef2d]
+#
+# Core dump written. Default location: /mnt/miniwdl_task_container/work/core or core.17
+#
+# An error report file with more information is saved as:
+# /mnt/miniwdl_task_container/work/hs_err_pid17.log
+ ```
+
+We think this is trigger by Java processes trying to memory map to the TMPDIR, when `/tmp` is bound to VAST scratch. This fails because VAST is a  network filesystem. 
+Ensure your configuration is set as above to make it use the local node storage as the TMPDIR:
+```toml
+  run_options = [ "--containall", "--bind",  "/tmp" ]
 ```

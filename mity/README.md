@@ -2,14 +2,7 @@
 
 Describe how to install and use [mity](https://github.com/KCCG/mity). 
 
-## Citation and data
-
-This pipeline was released in this [manuscript](https://www.fortunejournals.com/articles/mity-a-highly-sensitive-mitochondrial-variant-analysis-pipeline-for-whole-genome-sequencing-data.html). If you use it in your work, please cite as:
-
-```
-Clare Puttick, Ryan L Davis, Kishore R Kumar, Julian MW Quinn, Trent Zeng, Christian Fares, Mark Pinese, David M Thomas, Marcel E Dinger, Carolyn M Sue, Mark J Cowley. mity: A Highly Sensitive Mitochondrial Variant Analysis Pipeline for Whole Genome Sequencing Data. Journal of Bioinformatics and Systems Biology. 7 (2024): 05-16.
-```
-## Install 
+## Installation
 ```bash
 module load apptainer
 apptainer pull docker://drmjc/mity
@@ -44,3 +37,10 @@ mity report --prefix HG00446 --min_vaf 0.01 --contig chrM HG00446.normalise.vcf.
     2 - sbatch [2.run_multi_sample.sh](https://github.com/bahlolab/mtSwirl_HPC/blob/main/mity/2.run_multi_sample.sh)
 
 
+## Citation
+
+This pipeline was released in this [manuscript](https://www.fortunejournals.com/articles/mity-a-highly-sensitive-mitochondrial-variant-analysis-pipeline-for-whole-genome-sequencing-data.html). If you use it in your work, please cite as:
+
+```
+Clare Puttick, Ryan L Davis, Kishore R Kumar, Julian MW Quinn, Trent Zeng, Christian Fares, Mark Pinese, David M Thomas, Marcel E Dinger, Carolyn M Sue, Mark J Cowley. mity: A Highly Sensitive Mitochondrial Variant Analysis Pipeline for Whole Genome Sequencing Data. Journal of Bioinformatics and Systems Biology. 7 (2024): 05-16.
+```

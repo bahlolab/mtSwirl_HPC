@@ -6,9 +6,6 @@ This tool has been installed at:
 ```
 How it's installed: [install.sh](https://github.com/bahlolab/mtSwirl_HPC/blob/main/mitoHPC/install.sh)
 
-The script `getSummary.sh`, used for summarizing output files, has been updated to fix an error present in the original pipeline.
-
-
 ## Citing ##
 
 A bioinformatics pipeline for estimating mitochondrial DNA copy number and heteroplasmy levels from whole genome sequencing data, Battle et. al, NAR 2022

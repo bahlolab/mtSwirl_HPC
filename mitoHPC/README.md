@@ -55,7 +55,7 @@ bash ./run.all.sh > output.log 2>&1
 # /usr/bin/time -v bash ./run.all.sh > output.log 2>&1
 ```
 
-### RUN PIPELINE IN PARALLEL  ###
+### RUN PIPELINE IN PARALLEL (in progress) ###
 
 ```bash
 # Generate the command script from run.sh and save it as run.all.sh
@@ -63,8 +63,9 @@ $HP_SDIR/run.sh > run.all.sh
 
 module load parallel
 
-grep "$HP_SDIR/filter.sh" ./run.all.sh | parallel && $HP_SDIR/getSummary.sh
+# grep filter.sh ./run.all.sh | parallel && getSummary.sh
 # /usr/bin/time -v bash -c 'grep "$HP_SDIR/filter.sh" ./run.all.sh | parallel && $HP_SDIR/getSummary.sh'
+# need to re-write getSummary.sh
 
 ```
 

@@ -52,7 +52,7 @@ $HP_SDIR/run.sh > run.all.sh
 # Execute the generated command script
 # Stdout and stderr will be logged in output.log
 bash ./run.all.sh > output.log 2>&1
-
+# /usr/bin/time -v bash ./run.all.sh > output.log 2>&1
 ```
 
 ### RUN PIPELINE IN PARALLEL  ###
@@ -61,7 +61,10 @@ bash ./run.all.sh > output.log 2>&1
 # Generate the command script from run.sh and save it as run.all.sh
 $HP_SDIR/run.sh > run.all.sh
 
-grep filter.sh ./run.all.sh | parallel ; getSummary.sh
+module load parallel
+
+grep "$HP_SDIR/filter.sh" ./run.all.sh | parallel && $HP_SDIR/getSummary.sh
+# /usr/bin/time -v bash -c 'grep "$HP_SDIR/filter.sh" ./run.all.sh | parallel && $HP_SDIR/getSummary.sh'
 
 ```
 

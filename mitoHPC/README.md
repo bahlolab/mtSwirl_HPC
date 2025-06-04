@@ -4,7 +4,7 @@ This tool has been installed at:
 ```
 /stornext/Bioinf/data/lab_bahlo/software/apps/MitoHPC/
 ```
-How it's installed: [install.sh](https://github.com/bahlolab/MitoHPC/blob/main/install.sh)
+How it's installed: [install.sh](https://github.com/bahlolab/mtSwirl_HPC/blob/main/mitoHPC/install.sh)
 
 The script `getSummary.sh`, used for summarizing output files, has been updated to fix an error present in the original pipeline.
 

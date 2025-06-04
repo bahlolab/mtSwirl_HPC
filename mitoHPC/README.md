@@ -1,0 +1,92 @@
+# MitoHPC : Mitochondrial High Performance Caller #
+
+This tool has been installed at:
+```
+/stornext/Bioinf/data/lab_bahlo/software/apps/MitoHPC/
+```
+How it's installed: [install.sh](https://github.com/bahlolab/MitoHPC/blob/main/install.sh)
+
+The script `getSummary.sh`, used for summarizing output files, has been updated to fix an error present in the original pipeline.
+
+
+## Citing ##
+
+A bioinformatics pipeline for estimating mitochondrial DNA copy number and heteroplasmy levels from whole genome sequencing data, Battle et. al, NAR 2022
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9112767/ 
+
+## PIPELINE USAGE ##
+
+### SETUP ENVIRONMENT ###
+
+```bash
+# Move to your working directory
+cd /vast/scratch/users/wang.lo/1000G/mitoHPC
+
+# Define the path to the MitoHPC scripts
+HP_SDIR=/stornext/Bioinf/data/lab_bahlo/software/apps/MitoHPC/scripts
+
+# Copy the parameter initialization script (with prompt before overwriting)
+cp -i $HP_SDIR/init.sh .
+
+# View and edit the init file if needed (e.g., update paths)
+cat init.sh
+nano init.sh
+
+# ⚠️ IMPORTANT: Update this line in init.sh if needed
+# export HP_ADIR=/vast/scratch/users/wang.lo/1000G/data/WGS/
+
+# Source the init file to load environment variables
+. ./init.sh    # or: source ./init.sh
+
+# Verify HP_ variables are correctly set
+printenv | grep '^HP_' | sort
+
+# View input file (if present)
+nano "$HP_IN"
+
+```
+
+### RUN PIPELINE  ###
+
+```bash
+# Generate the command script from run.sh and save it as run.all.sh
+$HP_SDIR/run.sh > run.all.sh
+
+# Execute the generated command script
+# Stdout and stderr will be logged in output.log
+bash ./run.all.sh > output.log 2>&1
+
+```
+
+### RUN PIPELINE IN PARALLEL  ###
+
+```bash
+# Generate the command script from run.sh and save it as run.all.sh
+$HP_SDIR/run.sh > run.all.sh
+
+grep filter.sh ./run.all.sh | parallel ; getSummary.sh
+
+```
+
+### RE-RUN PIPELINE (optional) ###
+
+```bash
+# Set the path to the MitoHPC script directory
+HP_SDIR=/stornext/Bioinf/data/lab_bahlo/software/apps/MitoHPC/scripts
+
+# Remove old input file if it exists
+rm -f in.txt
+
+# Edit parameters as needed (e.g., input/output directories, sample list)
+nano init.sh
+
+# Load updated configuration into the current shell session
+. ./init.sh
+
+# Regenerate the full command script based on current settings
+$HP_SDIR/run.sh > run.all.sh
+
+# Execute the pipeline and log all output
+bash ./run.all.sh > output.log 2>&1
+
+```

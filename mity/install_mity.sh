@@ -1,7 +1,7 @@
 # install mity using Docker image
 
 # Set working directory
-work_dir=/vast/project/bahlo_mtDNA
+work_dir=/vast/projects/bahlo_mtDNA/
 cd $work_dir || { echo "Failed to change to $work_dir"; exit 1; }
 
 # Create software directory if it doesn't exist

@@ -71,3 +71,14 @@ nextflow run genepi/mtdna-server-2 -r v2.1.16 \
   -profile singularity
 
 ```
+
+Resume the pipeline:
+```bash
+cd /vast/scratch/users/$USER/mtdna-server-2
+
+nextflow run genepi/mtdna-server-2 -r v2.1.16 \
+  -c mtdna-server-2.config \
+  -profile singularity \
+  -resume
+
+```

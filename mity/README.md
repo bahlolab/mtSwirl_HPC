@@ -5,7 +5,7 @@ Describe how to install and use [mity](https://github.com/KCCG/mity).
 ## Installation
 ```bash
 module load apptainer
-apptainer pull docker://drmjc/mity
+apptainer pull mity_latest.sif docker://drmjc/mity:2.0.0
 ```
 
 ## Run

@@ -1,10 +1,10 @@
 ### re-run failed the jobs
 
 rm(list = ls())
-setwd("/vast/scratch/users/wang.lo/mtSwirl_HPC_archive/MacTel/")
+setwd("/vast/scratch/users/wang.lo/mtSwirl_HPC/MacTel/")
 library(jsonlite)
 
-dir_path <- "/vast/scratch/users/wang.lo/mtSwirl_HPC_archive/MacTel/"
+dir_path <- "/vast/scratch/users/wang.lo/mtSwirl_HPC/MacTel/"
 
 # List all files with a .out extension in the specified directory and its sub-directories
 files <- list.files(path = dir_path, pattern = "\\.out$",)

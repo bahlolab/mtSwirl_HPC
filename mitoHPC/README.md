@@ -30,7 +30,10 @@ cat init.sh
 nano init.sh
 
 # ⚠️ IMPORTANT: Update this line in init.sh if needed
-# export HP_ADIR=/vast/scratch/users/wang.lo/1000G/data/WGS/
+# export HP_ADIR=/vast/scratch/users/wang.lo/1000G/data/WGS
+
+# set no subsampling for more accurate heteroplasmy level
+# export HP_L=
 
 # Source the init file to load environment variables
 . ./init.sh    # or: source ./init.sh

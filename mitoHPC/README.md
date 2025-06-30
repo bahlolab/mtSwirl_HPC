@@ -17,7 +17,7 @@ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9112767/
 
 ```bash
 # Move to your working directory
-cd /vast/scratch/users/wang.lo/1000G/mitoHPC
+cd /vast/scratch/users/$USER/1000G/mitoHPC
 
 # Define the path to the MitoHPC scripts
 HP_SDIR=/stornext/Bioinf/data/lab_bahlo/software/apps/MitoHPC/scripts

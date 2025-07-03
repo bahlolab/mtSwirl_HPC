@@ -67,7 +67,7 @@ $HP_SDIR/run.sh > run.all.sh
 module load parallel
 
 # grep filter.sh ./run.all.sh | parallel && getSummary.sh
-# /usr/bin/time -v bash -c 'grep "$HP_SDIR/filter.sh" ./run.all.sh | parallel && $HP_SDIR/getSummary.sh'
+grep filter.sh ./run.all.sh | parallel -j 4 --verbose
 # need to re-write getSummary.sh
 
 ```
@@ -75,6 +75,8 @@ module load parallel
 ### RE-RUN PIPELINE (optional) ###
 
 ```bash
+cd /vast/scratch/users/$USER/1000G/mitoHPC
+
 # Set the path to the MitoHPC script directory
 HP_SDIR=/stornext/Bioinf/data/lab_bahlo/software/apps/MitoHPC/scripts
 

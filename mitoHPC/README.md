@@ -58,17 +58,21 @@ bash ./run.all.sh > output.log 2>&1
 # /usr/bin/time -v bash ./run.all.sh > output.log 2>&1
 ```
 
-### RUN PIPELINE IN PARALLEL (in progress) ###
+### RUN PIPELINE IN PARALLEL ###
 
 ```bash
+screen
+
 # Generate the command script from run.sh and save it as run.all.sh
 $HP_SDIR/run.sh > run.all.sh
 
 module load parallel
 
 # grep filter.sh ./run.all.sh | parallel && getSummary.sh
-grep filter.sh ./run.all.sh | parallel -j 4 --verbose
-# need to re-write getSummary.sh
+grep filter.sh ./run.all.sh | parallel
+bash /stornext/Bioinf/data/lab_bahlo/software/apps/MitoHPC/scripts//getSummary.sh /vast/scratch/users/$USER/1000G/mitoHPC/out/
+
+# This approach isn't scalable — we need to write scripts that submit jobs via SLURM.
 
 ```
 

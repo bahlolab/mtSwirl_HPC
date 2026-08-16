@@ -1,5 +1,5 @@
 rm(list = ls())
-setwd("/path/to/workdir/folder/")
+setwd("/path/to/mtSwirl_HPC/folder/")
 
 # Load necessary library
 library(jsonlite)

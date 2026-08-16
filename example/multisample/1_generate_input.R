@@ -1,5 +1,5 @@
 rm(list = ls())
-setwd("/vast/scratch/users/wang.lo/mtSwirl_HPC/MacTel/")
+setwd("/path/to/folder/")
 
 # Load necessary library
 library(jsonlite)
@@ -7,7 +7,7 @@ library(jsonlite)
 data <- fromJSON("input_noalt.json")
 
 # Define the directory containing the files
-MacTel_WGS <- "/stornext/Bioinf/data/lab_bahlo/projects/mactel/MacTel_WGS_2023/bams"
+MacTel_WGS <- "/path/to/bams"
 bam <- list.files(path = MacTel_WGS, pattern = "\\.bam$", full.names = TRUE)
 bai <- list.files(path = MacTel_WGS, pattern = "\\.bai$", full.names = TRUE)
 bam_names <- list.files(path = MacTel_WGS, pattern = "\\.bam$")

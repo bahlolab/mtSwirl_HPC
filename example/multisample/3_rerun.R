@@ -1,10 +1,10 @@
 ### re-run failed the jobs
 
 rm(list = ls())
-setwd("/path/to/workdir/folder/")
+setwd("/path/to/mtSwirl_HPC/folder/")
 library(jsonlite)
 
-dir_path <- "/path/to/workdir/folder/"
+dir_path <- "/path/to/mtSwirl_HPC/folder/"
 
 # List all files with a .out extension in the specified directory and its sub-directories
 files <- list.files(path = dir_path, pattern = "\\.out$",)
@@ -17,12 +17,12 @@ sample.fail <- sample.all[!(sample.all %in% sample.done)]
 input <- read.table("input_list.txt", header = T, sep = "\t")
 input <- input[input$sample %in% sample.fail,]
 
-writeLines("cd /path/to/workdir/folder\n", "run.sh")
+writeLines("cd /path/to/mtSwirl_HPC/folder\n", "run.sh")
 
 for(i in 1:nrow(input)){
   # Define the sample value
   sample <- input$sample[i]
-  cat(paste0("sbatch /path/to/workdir/folder/",sample,"/script.sh\n"), file = "run.sh", append = T)
+  cat(paste0("sbatch /path/to/mtSwirl_HPC/folder/",sample,"/script.sh\n"), file = "run.sh", append = T)
   
 }
 

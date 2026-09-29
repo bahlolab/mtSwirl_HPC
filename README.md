@@ -1,12 +1,12 @@
 # mtSwirl HPC
 
-We adapted the [mtSwirl](https://github.com/rahulg603/mtSwirl) pipeline, originally designed for the Terra cloud platform, to our local HPC, specifically for internal use in routine whole-genome sequencing (WGS) mtDNA analysis.
+We adapted the [mtSwirl](https://github.com/rahulg603/mtSwirl) pipeline, originally designed for the Terra cloud platform, to local HPC, specifically for use in routine whole-genome sequencing (WGS) mtDNA analysis.
 
 Please contact the authors, Longfei Wang wang.lo@wehi.edu.au and Michael Milton milton.m@wehi.edu.au, if you would like to report any issues, feedback or feature requests.
 
 ## Citation and data
 
-This pipeline was released as part of the manuscript: `Nuclear genetic control of mitochondrial DNA copy number and heteroplasmy in humans`, which can be found at [Nature](https://www.nature.com/articles/s41586-023-06426-5). If you use these resources in your work, please cite as `Gupta et al. 2023 Nature`:
+The original mtSwirl pipeline was released as part of the manuscript: `Nuclear genetic control of mitochondrial DNA copy number and heteroplasmy in humans`, which can be found at [Nature](https://www.nature.com/articles/s41586-023-06426-5). If you use these resources in your work, please cite as `Gupta et al. 2023 Nature`:
 
 ```
 Gupta, R., Kanai, M., Durham, T.J. et al. Nuclear genetic control of mtDNA copy number and heteroplasmy in humans. Nature, in press. https://doi.org/10.1038/s41586-023-06426-5.
@@ -118,11 +118,11 @@ It is recommended to submit a maximum of 50 jobs per run due to the per-user CPU
 **Solution**: The in-house GATK pipeline use 'no_alt', which is all hg38 sequences minus those ending in '_alt' as these cause problems for some mappers. If you are using BAM files generated from the in-house GATK pipeline, please use the [input_noalt.json](https://github.com/bahlolab/mtSwirl_HPC/blob/main/input_noalt.json) configuration file, in which the references are
 
 ```
-"MitochondriaPipeline.ref_dict": "/stornext/Bioinf/data/lab_bahlo/ref_db/human/hg38/GATK/fasta_no_alt/hg38.no_alt.dict",
-"MitochondriaPipeline.ref_fasta": "/stornext/Bioinf/data/lab_bahlo/ref_db/human/hg38/GATK/fasta_no_alt/hg38.no_alt.fasta",
-"MitochondriaPipeline.ref_fasta_index": "/stornext/Bioinf/data/lab_bahlo/ref_db/human/hg38/GATK/fasta_no_alt/hg38.no_alt.fasta.fai",
-"MitochondriaPipeline.mt_interval_list": "/stornext/Bioinf/data/lab_bahlo/ref_db/human/mtDNA/mtSwirl_HPC/chrM.hg38.noalt.interval_list",
-"MitochondriaPipeline.nuc_interval_list": "/stornext/Bioinf/data/lab_bahlo/ref_db/human/mtDNA/mtSwirl_HPC/NUMTv3_all385.hg38.noalt.interval_list",
+"MitochondriaPipeline.ref_dict": "/path/to/ref_db/human/hg38/GATK/fasta_no_alt/hg38.no_alt.dict",
+"MitochondriaPipeline.ref_fasta": "/path/to/ref_db/human/hg38/GATK/fasta_no_alt/hg38.no_alt.fasta",
+"MitochondriaPipeline.ref_fasta_index": "/path/to/ref_db/human/hg38/GATK/fasta_no_alt/hg38.no_alt.fasta.fai",
+"MitochondriaPipeline.mt_interval_list": "/path/to/ref_db/human/mtDNA/mtSwirl_HPC/chrM.hg38.noalt.interval_list",
+"MitochondriaPipeline.nuc_interval_list": "/path/to/ref_db/human/mtDNA/mtSwirl_HPC/NUMTv3_all385.hg38.noalt.interval_list",
 ```
 
 ### Memory insufficient While submitting slurm jobs

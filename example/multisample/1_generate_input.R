@@ -7,10 +7,10 @@ library(jsonlite)
 data <- fromJSON("input_noalt.json")
 
 # Define the directory containing the files
-MacTel_WGS <- "/path/to/bams"
-bam <- list.files(path = MacTel_WGS, pattern = "\\.bam$", full.names = TRUE)
-bai <- list.files(path = MacTel_WGS, pattern = "\\.bai$", full.names = TRUE)
-bam_names <- list.files(path = MacTel_WGS, pattern = "\\.bam$")
+WGS <- "/path/to/bams"
+bam <- list.files(path = WGS, pattern = "\\.bam$", full.names = TRUE)
+bai <- list.files(path = WGS, pattern = "\\.bai$", full.names = TRUE)
+bam_names <- list.files(path = WGS, pattern = "\\.bam$")
 sample <- sub("\\.merged\\.bam$", "", bam_names)
 input <- data.frame(sample, bam, bai)
 write.table(input, "input_list.txt", row.names = F, quote = F, sep = "\t")
